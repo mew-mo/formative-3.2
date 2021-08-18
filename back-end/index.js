@@ -7,6 +7,8 @@ const cors = require('cors'); //for the cross origin restriction policy -- cross
 const bcrypt = require('bcryptjs'); //for encryption and decryption of data
 const config = require('./config.json'); //config that contains the user, password and cluster name
 
+const Item = require('./models/portfolio.js');
+
 const port = 3000;
 
 app.use(bodyParser.json()); //calling body parser method
@@ -14,7 +16,7 @@ app.use(bodyParser.urlencoded({extended:false}));
 
 app.use(cors()); // calling cors
 
-mongoose.connect(`mongodb+srv://${config.MONGO_USER}:${config.MONGO_PASSWORD}@cluster0.${config.MONGO_CLUSTER_NAME}.mongodb.net/School?retryWrites=true&w=majority`, {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(`mongodb+srv://${config.MONGO_USER}:${config.MONGO_PASSWORD}@cluster0.${config.MONGO_CLUSTER_NAME}.mongodb.net/portfolio?retryWrites=true&w=majority`, {useNewUrlParser: true, useUnifiedTopology: true})
 .then(()=> console.log('DB is connected'))
 .catch(err=> {
   console.log(`DBConnectionError: ${err.message}`);

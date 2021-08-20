@@ -32,7 +32,8 @@ app.post('/addItem', (req,res)=>{
     _id: new mongoose.Types.ObjectId,
     name: req.body.name,
     imgUrl: req.body.imgUrl,
-    author: req.body.author
+    author: req.body.author,
+    url: req.body.url
   });
   // saves this to the database and notifies the users if it has saved
   dbPortItem.save().then(result=> {

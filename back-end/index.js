@@ -8,6 +8,7 @@ const bcrypt = require('bcryptjs'); //for encryption and decryption of data
 const config = require('./config.json'); //config that contains the user, password and cluster name
 
 const Item = require('./models/portfolio.js');
+const User = require('./models/users.js');
 
 const port = 3000;
 
@@ -22,7 +23,8 @@ mongoose.connect(`mongodb+srv://${config.MONGO_USER}:${config.MONGO_PASSWORD}@cl
   console.log(`DBConnectionError: ${err.message}`);
 });
 
-// CRUD operations ------------------------
+// PORTFOLIO CRUD operations ------------------------
+// By Mo
 
 // POST method (C - Create)
 app.post('/addItem', (req,res)=>{
@@ -99,6 +101,10 @@ app.delete('/delete/:id', (req, res) => {
 });
 //delete ends
 
+// USER CRUD operations ------------------------
+// by Rane
+
+// here u go friend :D
 
 // listening to viewport
 app.listen(port, () => console.log(`Fullstack app is listening on port ${port}`));

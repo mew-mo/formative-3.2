@@ -32,7 +32,8 @@ app.post('/addItem', (req,res)=>{
     _id: new mongoose.Types.ObjectId,
     name: req.body.name,
     imgUrl: req.body.imgUrl,
-    author: req.body.author
+    author: req.body.author,
+    url: req.body.url
   });
   // saves this to the database and notifies the users if it has saved
   dbPortItem.save().then(result=> {
@@ -64,7 +65,7 @@ app.get('/getItem/:id', (req, res) => {
 // get ends -- THIS ONE DOESNT QUITE WORK YET
 
 // PATCH method (U - Update)
-app.patch('/update/:id', (req, res) => {
+app.patch('/updateItem/:id', (req, res) => {
   const idParam = req.params.id;
   // comes from the user when they request
   Item.findById(idParam,(err, product) => {
@@ -72,7 +73,8 @@ app.patch('/update/:id', (req, res) => {
       const updatedItem = {
         name: req.body.name,
         imgUrl: req.body.imgUrl,
-        author: req.body.author
+        author: req.body.author,
+        url: req.body.url
       }
       Item.updateOne({_id: idParam}, updatedItem)
         .then(result => {res.send(result)})
@@ -86,7 +88,7 @@ app.patch('/update/:id', (req, res) => {
 
 // DELETE method (D - Delete)
 // delete a product from database
-app.delete('/delete/:id', (req, res) => {
+app.delete('/deleteItem/:id', (req, res) => {
   const idParam = req.params.id;
   Item.findOne({_id: idParam}, (err, item) => {
     if (item) {

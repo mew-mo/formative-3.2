@@ -5,6 +5,7 @@ const portfolioSchema = new mongoose.Schema({
   name: String,
   imgUrl: String,
   author: String,
+  url: String,
   user_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'

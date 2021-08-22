@@ -109,4 +109,4 @@ app.delete('/deleteItem/:id', (req, res) => {
 // here u go friend :D
 
 // listening to viewport
-app.listen(port, () => console.log(`Fullstack app is listening on port ${port}`));
+app.listen(port, () => console.log(`Portfolio app is listening on port ${port}`));

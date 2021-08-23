@@ -105,7 +105,92 @@ app.delete('/delete/:id', (req, res) => {
 // USER CRUD operations ------------------------
 // by Rane
 
+// POST - Method C (Create)
+app.post('/registerUser', (req,res) => {
+  // finds one user
+  User.findOne({username:req.body.username}, (err,userResult) => {
+    if (userResult){
+      res.send('Error: Username is already taken. Please try another name');
+    } else {
+      const hash = bcrypt.hashSync(req.body.password); //Password Encryption
+      const user = new User({
+        _id: new mongoose.Types.ObjectId,
+        username: req.body.username,
+        email: req.body.email,
+        password: hash
+      });
+      user.save()
+      .then(result => {
+        res.send(result)
+      })
+      .catch(err => res.send(err));
+    }
+  })
+});
+
+// GET - Method R (Read)
+app.get('/allUsers', (req,res) => {
+  User.find()
+  .then(result => {
+    res.send(result);
+  })
+});
+
+// PATCH - Method U (Update)
+// Will be called when sessionStorage credentials are the same as user storage
+app.patch('/updateUser/:id', (req, res) => {
+  const  idParam = req.params.id;
+  User.findById(idParam, (err, user) => {
+    if (User['user_id'] == req.body.userId) {
+      const updateUser = {
+        name: req.body.username,
+        email: req.body.email,
+        password: hash
+      }
+      User.updateOne({_id: idParam}, updateUser)
+      .then(result => {res.send(result)})
+      .catch(err => res.send(err))
+    } else {
+      res.send('Error: User not found')
+    }
+  })
+})
+
+// DELETE - Method D (Delete)
+app.delete('/deleteUser/:id', (req, res) => {
+  const idParam = req.params.id;
+  User.findOne({_id: idParam}, (err, user) => {
+    if (User['user_id'] == req.body.userId) {
+      User.deleteOne({_id: idParam}, err => {
+        res.send ('deleted')
+      })
+    } else {
+      res.send('Error: Incorrect User')
+    }
+  })
+  .catch(err => res.send(err));
+})
+
+// POST - Method C (Create)
+app.post('/loginUser', (req,res) => {
+  User.findOne({username:req.body.username}, (err,userResult) =>{
+    if (userResult){
+      // .compareSync - if password matches
+      if (bcrypt.compareSync(req.body.password, userResult.password)) {
+        res.send(userResult)
+      } else {
+        res.send('Error: Not authorized')
+      }
+    } else {
+      res.send('Error: User not found. Please register')
+    }
+  })
+})
+
 // here u go friend :D
+// thanks friend :)
+
+
 
 // listening to viewport
 app.listen(port, () => console.log(`Fullstack app is listening on port ${port}`));

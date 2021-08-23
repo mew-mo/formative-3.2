@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+
+  <h1>Login</h1>
+
+  <!-- bootstrap form -->
+  <!-- <form> -->
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" class="form-control" id="username" placeholder="Enter username">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="password" placeholder="Password">
+  </div>
+  <button class="btn btn-primary" id="loginBtn">Login</button>
+  <button class="btn btn-primary" id="logoutBtn">Logout</button>
+
+  <!-- </form> page refreshes -->
+  <button id="checkDetails">Check Details</button>
+
+
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+(function() {
+  'use strict';
+  console.log('working');
+
+  let url;
+
+  $.ajax({
+    url: 'js/config.json',
+    type: 'GET',
+    dataType: 'json',
+    success: function(config){
+      console.log(config);
+      url = `http://${config.SERVER_URL}:${config.SERVER_PORT}`;
+      console.log(url);
+    },
+    error: function(error){
+      console.log('ERROR');
+      console.log(error);
+    }
+  }); //ajax server config
+
+  $('#loginBtn').click(function(){
+    event.preventDefault();
+    let username = $('#username').val();
+    let password = $('#password').val();
+    console.log(username, password);
+
+    if (username == '' || password == ''){
+      alert('Please enter all details');
+    } else {
+      $.ajax({
+        url: `${url}/loginUser`,
+        type: 'POST',
+        data: {
+          username: username,
+          password: password
+        },
+        success: function(user){
+          if (user == 'Error: User not found. Please register'){
+            alert ('User not found. Register as new user');
+          } else if (user == 'Error: Not authorized'){
+            alert('Please enter correct details');
+            $('#username').val('');
+            $('#password').val('');
+          } else {
+            // Windows session storage
+            sessionStorage.setItem('userId', user._id);
+            sessionStorage.setItem('username', user.username);
+            sessionStorage.setItem('userEmail', user.email);
+            console.log(sessionStorage);
+          }
+        }, //success
+        error: function(){
+          console.log('Error: Cannot call API');
+        }
+      }); //ajax
+    } //else
+  }); //login click
+
+  $('#logoutBtn').click(function(){
+    sessionStorage.clear();
+    console.log(sessionStorage);
+  });
+
+  $('#checkDetails').click(function(){
+    console.log(sessionStorage.getItem('username'));
+  })
+}());
+
+</script>
+</html>

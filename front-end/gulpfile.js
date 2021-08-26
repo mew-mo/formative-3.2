@@ -12,7 +12,7 @@ var gulp = require('gulp');
 function serve (done) {
     connect.server({
         root: '',
-        port: 3000,
+        port: 5000,
         livereload: true
     });
 		done();

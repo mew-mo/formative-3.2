@@ -6,7 +6,7 @@ In order to run the back end, the front end of the project is necessary. However
 
 #### :waxing_crescent_moon: 01. Clone
 
-Ensure you are using MAMP, WAMP or XAMP to simulate the live server environment.<br> 
+Ensure you are using MAMP, WAMP or XAMP to simulate the live server environment.<br>
 Clone this project into your www (WAMP, XAMP) or htdocs (MAMP) folder. :open_file_folder:
 
 ``` console
@@ -68,6 +68,11 @@ Endpoint :seedling: | What it Does :herb: | Values :deciduous_tree: | Method :le
 /addItem | Adds a new portfolio item to the DB | N/A | POST |
 /updateItem/:id | Updates the info of an existing portfolio item with corresponding ID | ObjectId | PATCH |
 /deleteItem/:id | Deletes an existing portfolio item with corresponding ID | ObjectId | DELETE |
+/registerUser | Creates a new user for the DB | N/A | POST |
+/allUsers | Shows all current users in the DB | N/A | GET |
+/updateUser/:id | Updates the details of an existing user with the corresponding ID | ObjectId | PATCH |
+/deleteUser/:id | Deletes an existing user with the corresponding ID | ObjectId | DELETE |
+
 
 #### :waning_crescent_moon:		 07. MongoDB
 To view data being posted, updated or deleted, navigate the following way in MongoDB:

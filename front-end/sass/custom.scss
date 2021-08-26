@@ -1,0 +1,101 @@
+
+@import 'vars';
+
+// GLOBAL STYLES ------------------------------
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+// HEADER SET ------------------------------
+// feel free to adjust this as needed ^-^
+
+h2 {
+  font-size: 2.5rem;
+  @extend %lora-font-default;
+}
+
+
+// MIXINS AND EXTENDS ------------------------------
+
+@mixin button($color: $grey, $bg-color: $white) {
+  color: $color;
+  height: 45px;
+  font-size: 1.4rem;
+  padding: 2px 30px 0 30px;
+  background: $bg-color;
+  border: 2px solid $color;
+  border-radius: 75px;
+  cursor: pointer;
+  @extend %nunito-font-default;
+}
+
+%lora-font-default {
+  font-weight: 400;
+  font-family: 'Lora', serif;
+}
+
+%nunito-font-default {
+  font-weight: 400;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+// INDEX PAGE SASS ------------------------------
+// put ur stuff here i guess! reorganise the css if u wanna im just laying it out how i'm used to LOL
+
+// INDEX PAGE SASS ENDS ------------------------------
+
+// USER PAGE SASS ------------------------------
+
+.user-display {
+  h2 {
+    margin: 30px 0 0 60px;
+  }
+}
+
+.user-pfp {
+  margin-top: 45%;
+}
+
+.user-options {
+  div {
+    margin-left: 24%;
+    display: inline;
+  }
+
+  button {
+    margin: 60px 0 0 30px;
+  }
+}
+
+#editUserModal {
+  margin-top: 10%;
+
+  .form-group {
+    padding: 20px 0 20px 0;
+  }
+}
+
+.modal-footer {
+
+  button {
+    margin: 20px 0 20px 0;
+  }
+
+  .ghost-btn {
+    margin-right: 30px;
+  }
+}
+
+// BUTTONS ------------------------------
+
+.ghost-btn {
+  @include button;
+}
+
+.cta-btn {
+  @include button($white, $grey);
+}
+
+// USER PAGE SASS ENDS ------------------------------

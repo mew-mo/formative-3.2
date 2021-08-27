@@ -1,4 +1,6 @@
 (function() {
+console.log('working');
+
 
 // login function to work with, i just needed to declare the session storage stuff
 

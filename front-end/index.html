@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MORA Home</title>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Nunito+Sans:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/custom.min.css">
+</head>
+<body data-title="home-page">
+
+  <!-- helloooo rane im just adding the login function into here so i can get the rest of my stuff working! u can change anything and everything i just needed to have it up for the other pages / endpoints to work :D -->
+
+  <!-- ive only put in a button that triggers a modal :) and the other basic setup stuff though i think u did that on ur end but didnt merge to dev? -->
+
+  <!-- its ok we will solve all conflict anyway! -->
+
+  <button type="button" class="cta-btn" id="loginModalBtn">
+    Log In
+  </button>
+
+  <!-- modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <form>
+            <div class="form-group row">
+              <label for="loginUser" class="col-sm-4 col-form-label">Username</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="loginUser" placeholder="Username...">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="loginPass" class="col-sm-4 col-form-label">Password</label>
+              <div class="col-sm-8">
+                <input type="password" class="form-control" id="loginPass" placeholder="Password...">
+              </div>
+            </div>
+          </form>
+          <!-- form -->
+        </div>
+        <!-- modal body -->
+        <div class="modal-footer mx-auto">
+          <button type="button" class="ghost-btn hvr-push" data-bs-dismiss="modal">Exit</button>
+          <button type="button" class="cta-btn" id="loginBtn">Log In</button>
+        </div>
+        <!-- modal footer -->
+      </div>
+      <!-- modal content -->
+    </div>
+    <!-- modal dialog -->
+  </div>
+  <!-- modal ENDS -->
+
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/custom.js"></script>
+</body>
+</html>

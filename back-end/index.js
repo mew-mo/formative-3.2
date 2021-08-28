@@ -50,20 +50,6 @@ app.get('/allItems', (req, res) => {
     .then(result => {res.send(result);})
 })
 
-// to retrieve ONE item from the database
-app.get('/getItem/:id', (req, res) => {
-  const idParam = req.params.id;
-  Item.findById(idParam,(err, product) => {
-    if (Item['user_id'] == req.body.userId) {
-      Item.findOne()
-        .then(result => {res.send(result);})
-    } else {
-      res.send('Error: Portfolio item not found');
-    }
-  })
-})
-// get ends -- THIS ONE DOESNT QUITE WORK YET
-
 // PATCH method (U - Update)
 app.patch('/updateItem/:id', (req, res) => {
   const idParam = req.params.id;
@@ -140,9 +126,11 @@ app.get('/allUsers', (req,res) => {
 // PATCH - Method U (Update)
 // Will be called when sessionStorage credentials are the same as user storage
 app.patch('/updateUser/:id', (req, res) => {
-  const  idParam = req.params.id;
+  const idParam = req.params.id;
   User.findById(idParam, (err, user) => {
     if (User['user_id'] == req.body.userId) {
+      const hash = bcrypt.hashSync(req.body.password);
+
       const updateUser = {
         name: req.body.username,
         email: req.body.email,

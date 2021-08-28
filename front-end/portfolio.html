@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MORA Portfolio | Edit Portfolio</title>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Nunito+Sans:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/custom.min.css">
+</head>
+<body data-title="portfolio-page">
+
+  <div class="container">
+
+    <div class="nav">
+
+    </div>
+    <!-- nav ENDS -->
+
+    <div id="allItems" class="row">
+
+
+    </div>
+    <!-- allItems END -->
+
+    <button id="backBtn" class="cta-btn">
+      Back
+    </button>
+
+    <button type="button" class="add-btn">
+      <p>+</p>
+    </button>
+
+  </div>
+  <!-- container ENDS -->
+
+  <!-- update item modal -->
+  <div class="modal fade" id="updateItemModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <form>
+            <div class="form-group row">
+              <label for="changeItemTitle" class="col-sm-3 col-form-label">Item Title</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="changeItemTitle" placeholder="Title describing portfolio piece...">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="changeImgUrl" class="col-sm-3 col-form-label">Image URL</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="changeImgUrl" placeholder="URL for the image of your work...">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="changeAuthorName" class="col-sm-3 col-form-label">Author Name</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="changeAuthorName" placeholder="Name of piece's creator...">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="changeItemUrl" class="col-sm-3 col-form-label">Item URL</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="changeItemUrl" placeholder="Link to a repo or relevant location...">
+              </div>
+            </div>
+          </form>
+          <!-- form -->
+        </div>
+        <!-- modal body -->
+        <div class="modal-footer mx-auto">
+          <button type="button" class="ghost-btn hvr-push" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="cta-btn" id="updateItemBtn">Update</button>
+        </div>
+        <!-- modal footer -->
+      </div>
+      <!-- modal content -->
+    </div>
+    <!-- modal dialog -->
+  </div>
+  <!-- update item modal ENDS -->
+
+  <!-- add item modal -->
+  <div class="modal fade" id="addItemModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <form>
+            <div class="form-group row">
+              <label for="inputItemTitle" class="col-sm-3 col-form-label">Item Title</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="inputItemTitle" placeholder="Title describing portfolio piece...">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputImgUrl" class="col-sm-3 col-form-label">Image URL</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="inputImgUrl" placeholder="URL for the image of your work...">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputAuthorName" class="col-sm-3 col-form-label">Author Name</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="inputAuthorName" placeholder="Name of piece's creator...">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputItemUrl" class="col-sm-3 col-form-label">Item URL</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="inputItemUrl" placeholder="Link to a repo or relevant location...">
+              </div>
+            </div>
+          </form>
+          <!-- form -->
+        </div>
+        <!-- modal body -->
+        <div class="modal-footer mx-auto">
+          <button type="button" class="ghost-btn hvr-push" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="cta-btn" id="addItemBtn">Add</button>
+        </div>
+        <!-- modal footer -->
+      </div>
+      <!-- modal content -->
+    </div>
+    <!-- modal dialog -->
+  </div>
+  <!-- add item modal ENDS -->
+
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/custom.js"></script>
+</body>
+</html>

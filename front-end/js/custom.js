@@ -176,8 +176,6 @@ console.log('custom.js connected...');
         }, //success ends
         error: function() {
           console.log('Error: Cannot GET');
-          location.reload();
-          // errors only have been happening when the page loads faster than it can connect to the DB. forcing a reload if there's an error allows the page to have the time to load data from the db.
         } //error ends
       }); //ajax ends
     });

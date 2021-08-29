@@ -66,12 +66,12 @@ Endpoint :seedling: | What it Does :herb: | Values :deciduous_tree: | Method :le
 --- | --- | --- | --- |
 /allItems | Shows all portfolio items from DB | N/A | GET |
 /addItem | Adds a new portfolio item to the DB | N/A | POST |
-/updateItem/:id | Updates the info of an existing portfolio item with corresponding ID | ObjectId | PATCH |
-/deleteItem/:id | Deletes an existing portfolio item with corresponding ID | ObjectId | DELETE |
+/updateItem/:id | Updates the info of an existing portfolio item with corresponding ID | ItemId | PATCH |
+/deleteItem/:id | Deletes an existing portfolio item with corresponding ID | ItemId | DELETE |
 /registerUser | Creates a new user for the DB | N/A | POST |
 /allUsers | Shows all current users in the DB | N/A | GET |
-/updateUser/:id | Updates the details of an existing user with the corresponding ID | ObjectId | PATCH |
-/deleteUser/:id | Deletes an existing user with the corresponding ID | ObjectId | DELETE |
+/updateUser/:id | Updates the details of an existing user with the corresponding ID | UserId | PATCH |
+/deleteUser/:id | Deletes an existing user with the corresponding ID | UserId | DELETE |
 
 
 #### :waning_crescent_moon: &nbsp; 07. MongoDB

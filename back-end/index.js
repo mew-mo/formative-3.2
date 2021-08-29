@@ -132,7 +132,7 @@ app.patch('/updateUser/:id', (req, res) => {
       const hash = bcrypt.hashSync(req.body.password);
 
       const updateUser = {
-        name: req.body.username,
+        username: req.body.username,
         email: req.body.email,
         password: hash
       }

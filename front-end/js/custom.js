@@ -146,13 +146,13 @@
               </div>`;
               lCounter++;
             } else {
-              console.log('Code Invalid : Valid Codes - hl, hr, hw, pl, pr, l');
+              alert('Code Invalid : Valid Codes - hl, hr, hw, pl, pr, l');
             }
           } //layoutOrder loop ends
         } //makeElements function ends
       }, //success ends
       error:function(){
-        console.log('NOT WORKING');
+        alert('Error: Cannot GET');
       }
     }); //ajax ENDS
 
@@ -190,8 +190,6 @@
         password = sessionStorage.getItem('userPass');
       }
 
-      console.log(username);
-      // note: it's updating on the front end, but for some reason not sending new  values to mongoDB.. i do not know why
       $.ajax({
         url: `http://${url}/updateUser/${userId}`,
         type: 'PATCH',
@@ -416,7 +414,7 @@
             location.reload();
           },
           error: function(){
-            console.log('Error: Can\'t call API');
+            alert('Error: Can\'t call API');
           } //err
         }); //ajax
       } //else

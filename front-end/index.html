@@ -4,26 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>MORA Home</title>
-  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+  <title>MORA Portfolio</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Nunito+Sans:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js">
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/custom.min.css">
 </head>
-<body data-title="home-page">
 
-  <!-- helloooo rane im just adding the login function into here so i can get the rest of my stuff working! u can change anything and everything i just needed to have it up for the other pages / endpoints to work :D -->
+<body data-title="home-page" class="portfolio-page">
 
-  <!-- ive only put in a button that triggers a modal :) and the other basic setup stuff though i think u did that on ur end but didnt merge to dev? -->
-
-  <!-- its ok we will solve all conflict anyway! -->
-
-  <button type="button" class="cta-btn" id="loginModalBtn">
+  <!-- incase we feel like adding it back again -->
+  <!-- <button type="button" class="cta-btn" id="loginModalBtn">
     Log In
-  </button>
+  </button> -->
 
-  <!-- modal -->
+  <!-- login modal -->
   <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -55,10 +54,51 @@
     </div>
     <!-- modal dialog -->
   </div>
-  <!-- modal ENDS -->
+  <!-- login modal ENDS -->
+
+  <!-- landing page -->
+  <div class="landing-cont" >
+    <h1 class="land-mora">MORA</h1>
+    <h1 class="land-dot"><a id="loginModalBtn">.</a></h1>
+    <h1 class="land-scroll"><a href="#start">↓</a></h1>
+  </div>
+  <div class="portfolio-start-cont" id="start">
+    <h1 class="port-start-head">Our Portfolio</h1>
+    <h1 class="port-start-names">Monique Tickle<br>Rane Magno</h1>
+  </div>
+
+
+  <div class="portfolio-items-cont">
+    <!-- Where Portflio Items will be inserted -->
+  </div>
+
+  <div class="contacts-cont">
+    <div class="contacts-head">
+      <h1>Contact Us</h1>
+    </div>
+    <div class="contact-details">
+      <div class="details mo-details">
+        <ul>
+          <li>Monique Tickle</li>
+          <li>github.com/mew-mo</li>
+          <li>tickle.monique@gmail.com</li>
+        </ul>
+      </div>
+      <div class="details rane-details">
+        <ul>
+          <li>Rane Magno</li>
+          <li>github.com/rraneighh</li>
+          <li>ranemagno@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- contacts container ENDS -->
+  <h1 class="back-top"><a href="#top">.</a><br><a href="#top">↑</a></h1>
 
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/home.js"></script>
   <script src="js/custom.js"></script>
 </body>
 </html>

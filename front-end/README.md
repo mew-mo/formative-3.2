@@ -2,6 +2,8 @@
 
 In order to run the front end, the back end of the project is necessary. The back end needs to be running and connected to MongoDB, otherwise the front end will not function as expected.
 
+:bangbang: **Please note our website isn't responsive and will look/work best on a desktop computer!** :bangbang:
+
 ## How to Run the Front End :dart:
 
 #### :waxing_crescent_moon: &nbsp; 01. Clone
@@ -32,13 +34,26 @@ To access:
 
 1. Copy config0.json
 2. Delete the "0" from the filename
-3. Place https://localhost OR https://[your ip here] in the SERVER_URL field
+3. Place "localhost" OR your ip into the SERVER_URL field
 4. Place the port number you are running (typically either 3000 or 8888) in the SERVER_PORT field
 4. Save file
 
 Now you can run the link in your browser.
 
 #### :full_moon: &nbsp; 04. Authentication
-:round_pushpin:	Only users with login details can add, change or delete portfolio items- you will need to register as a new user if you do not have a login.
 
-:round_pushpin:	The database will not return any products if it is empty- in order to update, delete or view, you will need to add portfolio items.
+To access the pages where you can change details, you need to log in. Only users with login details can add, change or delete portfolio items.
+
+Since this portfolio is for Rane and Mo's pieces, logging in is not intended to be accessible to everyone. However, for the sake of testing functionality and viewing all of our work on this website, we've kindly offered some instructions:
+
+**How to log in:**<br>
+It is a bit of an easter egg intended for the admins (Rane and Mo), but you must click on the small dot under the "MORA" title on the index page. Then the login modal will come up.
+
+You will not have a login, but feel free to use this test dummy login:
+* Username: user
+* Password: pass
+
+and you're set! :tada:
+
+:bangbang: **Please do not delete our existing pieces!** :bangbang: <br>
+If you want to test the deleting function, please ADD (+) a new piece first.

@@ -1,5 +1,5 @@
 (function(){
-  // console.log('home.js connected!');
+  console.log('home.js connected...');
 
   // Bootstrap Poppers Initialize
   $(function () {

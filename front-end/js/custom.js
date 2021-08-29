@@ -1,5 +1,5 @@
 (function() {
-console.log('working');
+console.log('custom.js connected...');
 
 
   // declaring the url
@@ -36,7 +36,7 @@ console.log('working');
         alert('Please enter all of your details.');
       } else {
         $.ajax({
-          url: `${url}/loginUser`,
+          url: `http://${url}/loginUser`,
           type: 'POST',
           data: {
             username: username,
@@ -58,6 +58,7 @@ console.log('working');
               sessionStorage.setItem('userEmail', user.email);
               sessionStorage.setItem('userPass', user.password);
               $('#loginModal').modal('hide');
+              window.location.href = "users.html";
             } //else
           } //success
         }); //ajax ends
@@ -102,7 +103,7 @@ console.log('working');
       console.log(username);
       // note: it's updating on the front end, but for some reason not sending new  values to mongoDB.. i do not know why
       $.ajax({
-        url: `${url}/updateUser/:${userId}`,
+        url: `http://${url}/updateUser/:${userId}`,
         type: 'PATCH',
         data: {
           username: username,
@@ -150,7 +151,7 @@ console.log('working');
 
     window.addEventListener('load', () => {
       $.ajax({
-        url: `${url}/allItems`,
+        url: `http://${url}/allItems`,
         type: 'GET',
         dataType: 'json',
         success: function(itemsFromDB) {
@@ -195,7 +196,7 @@ console.log('working');
         // not allowing user to perform actions if not logged in
 
         $.ajax({
-          url: `${url}/deleteItem/${delItemId}`,
+          url: `http://${url}/deleteItem/${delItemId}`,
           type: 'DELETE',
           data: {
             user_id: sessionStorage.userID
@@ -249,7 +250,7 @@ console.log('working');
         alert('Please fill all fields');
       } else {
         $.ajax({
-          url: `${url}/updateItem/${editItemId}`,
+          url: `http://${url}/updateItem/${editItemId}`,
           type: 'PATCH',
           data: {
             name: name,
@@ -310,7 +311,7 @@ console.log('working');
         alert('Please enter all of the necessary details.');
       } else {
         $.ajax({
-          url: `${url}/addItem`,
+          url: `http://${url}/addItem`,
           type: 'POST',
           data: {
             name: name,

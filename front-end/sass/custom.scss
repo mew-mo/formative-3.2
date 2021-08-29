@@ -11,15 +11,6 @@ html {
   padding: 0;
 }
 
-// HEADER SET ------------------------------
-// feel free to adjust this as needed ^-^
-
-h2 {
-  font-size: 2.5rem;
-  @extend %lora-font-default;
-}
-
-
 // MIXINS AND EXTENDS ------------------------------
 
 @mixin button($color: $grey, $bg-color: $white) {
@@ -45,8 +36,6 @@ h2 {
 }
 
 // INDEX PAGE SASS ------------------------------
-// put ur stuff here i guess! reorganise the css if u wanna im just laying it out how i'm used to LOL
-// thank you very much!! and the organization is pristine :O
 
 .portfolio-page {
   a:link,

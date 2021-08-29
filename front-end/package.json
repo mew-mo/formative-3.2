@@ -1,0 +1,31 @@
+{
+  "name": "formative-3.2",
+  "version": "1.0.0",
+  "description": "Creating a fullstack portfolio website with Teamwork",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-connect": "^5.7.0",
+    "gulp-jshint": "^2.1.0",
+    "gulp-livereload": "^4.0.2",
+    "gulp-minify": "^3.1.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-notify": "^4.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.0.0",
+    "jshint": "^2.13.1",
+    "jshint-stylish": "^2.2.1",
+    "node-sass": "^6.0.1",
+    "sass": "^1.37.5"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.9.3",
+    "bootstrap": "^5.1.0",
+    "jquery": "^3.6.0"
+  }
+}

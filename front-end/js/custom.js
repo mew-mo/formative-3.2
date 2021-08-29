@@ -189,7 +189,7 @@
       console.log(username);
       // note: it's updating on the front end, but for some reason not sending new  values to mongoDB.. i do not know why
       $.ajax({
-        url: `http://${url}/updateUser/:${userId}`,
+        url: `http://${url}/updateUser/${userId}`,
         type: 'PATCH',
         data: {
           username: username,
@@ -245,7 +245,7 @@
             document.querySelector('#allItems').innerHTML += `
             <div class="col-4 portfolio-item">
               <a href="${itemsFromDB[i].url}" target="_blank">
-                <img src="${itemsFromDB[i].imgUrl}" class="item-preview">
+                <img src="${itemsFromDB[i].imgUrl}" alt="${itemsFromDB[i].author} - ${itemsFromDB[i].name} class="item-preview">
               </a>
               <div class="item-text">
                 <p>${itemsFromDB[i].name} &nbsp; • &nbsp; By ${itemsFromDB[i].author} </p>
@@ -258,6 +258,7 @@
               </div>
             </div>`;
             // appends all items to the page
+            // hidden spans to keep details accessible
           }
         }, //success ends
         error: function() {

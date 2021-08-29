@@ -4,7 +4,7 @@ In order to run the back end, the front end of the project is necessary. However
 
 ## How to Run the Back End :dart:
 
-#### :waxing_crescent_moon: 01. Clone
+#### :waxing_crescent_moon: &nbsp; 01. Clone
 
 Ensure you are using MAMP, WAMP or XAMP to simulate the live server environment.<br>
 Clone this project into your www (WAMP, XAMP) or htdocs (MAMP) folder. :open_file_folder:
@@ -13,14 +13,14 @@ Clone this project into your www (WAMP, XAMP) or htdocs (MAMP) folder. :open_fil
 git clone https://github.com/mew-mo/formative-3.2.git
 ```
 
-#### :first_quarter_moon:	02. Install Packages
+#### :first_quarter_moon: &nbsp; 02. Install Packages
 All of the dependencies are already available in the package.json. Navigate to the back end folder within the project, then install dependencies.
 ``` console
 cd back-end/
 npm i
 ```
 
-#### :waxing_gibbous_moon: 03. MongoDB
+#### :waxing_gibbous_moon: &nbsp; 03. MongoDB
 For this project to function, you need a MongoDB account. This is so that you are able to parse your username, password and the Database cluster name into the URL- it cannot connect successfully without these.
 
 https://cloud.mongodb.com/ :cloud:
@@ -31,7 +31,7 @@ Then:
 3. Place your own username, password and clustername in the related empty fields
 4. Save file
 
-#### :full_moon: 04. Run Project
+#### :full_moon: &nbsp; 04. Run Project
 In order to run the project, you need nodemon to be installed. In order to install this globally:
 ``` console
 npm i nodemon -g
@@ -52,14 +52,14 @@ Portfolio app is listening on port 3000
 DB is connected
 ```
 
-#### :waning_gibbous_moon:		 05. Viewing Home
+#### :waning_gibbous_moon: &nbsp; 05. Viewing Home
 To view the homepage, the browser link will look like the following:
 
-localhost:3000
+https://localhost:3000
 
 OR it may have your ip # in the place of localhost.
 
-#### :last_quarter_moon:		 06. Endpoints
+#### :last_quarter_moon: &nbsp; 06. Endpoints
 Here are the possible interactive endpoints available on the website.
 
 Endpoint :seedling: | What it Does :herb: | Values :deciduous_tree: | Method :leaves: |
@@ -74,7 +74,7 @@ Endpoint :seedling: | What it Does :herb: | Values :deciduous_tree: | Method :le
 /deleteUser/:id | Deletes an existing user with the corresponding ID | ObjectId | DELETE |
 
 
-#### :waning_crescent_moon:		 07. MongoDB
+#### :waning_crescent_moon: &nbsp; 07. MongoDB
 To view data being posted, updated or deleted, navigate the following way in MongoDB:
 
 cluster\

@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Nunito+Sans:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/custom.min.css">
 </head>
-<body>
+<body data-title="user-page">
 
   <div class="container">
 
@@ -27,7 +27,7 @@
         </div>
 
         <div class="username mx-auto">
-          <h2>Default</h2>
+          <h2 class="username-display">Default</h2>
         </div>
       </div>
       <!-- col ENDS -->
@@ -63,19 +63,19 @@
         <div class="modal-body">
           <form>
             <div class="form-group row">
-              <label for="staticEmail" class="col-sm-4 col-form-label">Change Username</label>
+              <label for="changeUser" class="col-sm-4 col-form-label">Change Username</label>
               <div class="col-sm-8">
                 <input type="text" class="form-control" id="changeUser" placeholder="New Username...">
               </div>
             </div>
             <div class="form-group row">
-              <label for="staticEmail" class="col-sm-4 col-form-label">Change Email</label>
+              <label for="changeEmail" class="col-sm-4 col-form-label">Change Email</label>
               <div class="col-sm-8">
                 <input type="email" class="form-control" id="changeEmail" placeholder="New Email...">
               </div>
             </div>
             <div class="form-group row">
-              <label for="inputPassword" class="col-sm-4 col-form-label">Change Password</label>
+              <label for="changePassword" class="col-sm-4 col-form-label">Change Password</label>
               <div class="col-sm-8">
                 <input type="password" class="form-control" id="changePassword" placeholder="New Password...">
               </div>
@@ -86,7 +86,7 @@
         <!-- modal body -->
         <div class="modal-footer mx-auto">
           <button type="button" class="ghost-btn hvr-push" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="cta-btn">Update</button>
+          <button type="button" class="cta-btn" id="updateBtn">Update</button>
         </div>
         <!-- modal footer -->
       </div>

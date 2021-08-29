@@ -91,13 +91,10 @@
       // keeping old values if any fields are unchanged
       if (username == '') {
         username = sessionStorage.getItem('userName');
-        console.log(username);
       } else if (email == '') {
         email = sessionStorage.getItem('userEmail');
-        console.log(email);
       } else if (password == '') {
         password = sessionStorage.getItem('userPass');
-        console.log(password);
       }
 
       console.log(username);
@@ -112,7 +109,6 @@
           user_id: userId
         },
         success: function(data) {
-          console.log(data);
           if (data == '401 error: user has no permission to update') {
             alert('401 error: user has no permission to update');
           } else {
@@ -148,7 +144,7 @@
     var cloudObject = {
       editItemId: false
     };
-    // because we need to pull this object out of it's functional scope, passing it through this object to access it
+    // because we need to pull this variable out of its functional scope, we must pass it through this object to access it
 
     window.addEventListener('load', () => {
       $.ajax({
@@ -172,6 +168,7 @@
                 <span class="data-url">${itemsFromDB[i].url}</span>
               </div>
             </div>`;
+            // appends all items to the page
           }
         }, //success ends
         error: function() {
@@ -187,11 +184,13 @@
 
         event.preventDefault();
         let delItemId = $(e.target).data('title');
+        // grabbing the relevant item id that is stored in the associated button
 
         if (!sessionStorage.userID) {
           alert('401 Permission Denied: Please log in or register first.');
           return;
         }
+        // not allowing user to perform actions if not logged in
 
         $.ajax({
           url: `${url}/deleteItem/${delItemId}`,
@@ -200,7 +199,6 @@
             user_id: sessionStorage.userID
           },
           success: function(data) {
-            console.log(data);
             if (data == 'deleted') {
               alert('Successfully deleted');
               location.reload();
@@ -209,12 +207,11 @@
             }
           }, //success
           error: function() {
-            console.log('Error: Can\'t call API');
+            alert('Error: Can\'t call API');
           } //err
         }); //ajax
 
       } else if (e.target.innerHTML === 'Edit'){
-        console.dir(e.target.parentNode);
 
         $('#changeItemTitle').val(e.target.parentNode.children[3].innerText);
         $('#changeImgUrl').val(e.target.parentNode.children[4].innerText);
@@ -224,7 +221,10 @@
 
         $('#updateItemModal').modal('show');
         let editItemId = $(e.target).data('title');
+        // grabbing the relevant item id that is stored in the associated button
+
         cloudObject.editItemId = editItemId;
+        // passing through the cloud object so the relevant id is accessible in a different function
       }
     }, false);
     // delete item conditional ENDS
@@ -236,11 +236,13 @@
 
       let userId = sessionStorage.getItem('userID');
       let editItemId = cloudObject.editItemId;
+      // grabbing the id from the cloud
       let name = $('#changeItemTitle').val();
       let imageUrl = $('#changeImgUrl').val();
       let author = $('#changeAuthorName').val();
       let itemUrl = $('#changeItemUrl').val();
 
+      // not allowing the user to continue if any of the fields are left blank
       if (name == '' || imageUrl == '' || author == '' || url == '') {
         alert('Please fill all fields');
       } else {
@@ -255,7 +257,6 @@
             user_id: userId
           },
           success: function(data) {
-            console.log(data);
             if (data == '401 error: user has no permission to update') {
               alert('401 error: user has no permission to update');
             } else {
@@ -267,6 +268,7 @@
             $('#changeImgUrl').val('');
             $('#changeAuthorName').val('');
             $('#changeItemUrl').val('');
+            // resetting fields
           }, //success
           error: function() {
             alert('Error: Can\'t call API');
@@ -279,12 +281,14 @@
     document.querySelector('#backBtn').addEventListener('click', () => {
       window.location.href = 'users.html';
     }, false);
+    // taking user to previous page
 
     document.querySelector('.add-btn').addEventListener('click', () => {
       if (sessionStorage.getItem('userID')) {
         $('#addItemModal').modal('show');
       } else {
         alert('You don\'t have permission to do this. Please log in or register first.');
+        // not allowing user to perform actions if not logged in
       }
     }, false);
 
@@ -299,6 +303,7 @@
       let itemUrl = $('#inputItemUrl').val();
       let userId = sessionStorage.getItem('userID');
 
+      // not allowing user to continue if any fields are left blank
       if (name == '' || imageUrl == '' || author == '' || itemUrl == '') {
         alert('Please enter all of the necessary details.');
       } else {
@@ -324,9 +329,9 @@
       } //else
     }, false);
     // add item function ENDS
-
     // PORTFOLIO.HTML JS ENDS--------------------
   }
+  // page conitional ENDS
 
 }());
 // iife ENDS

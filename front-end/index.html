@@ -4,42 +4,64 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>MORA - Portfolio</title>
+  <title>MORA Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js">
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/custom.min.css">
 </head>
-<body>
-  <div class="landing-cont">
+
+<body class="portfolio-page">
+
+
+
+
+  <span name="top"></span>
+
+  <div class="landing-cont" >
     <h1 class="land-mora">MORA</h1>
+
+    <h1 class="port-start-head">Our Portfolio</h1>
+
+    <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
+
+
     <h1 class="land-dot">.</h1>
-    <h1 class="land-scroll">↓</h1>
+    <h1 class="land-scroll"><a href="#start">↓</a></h1>
   </div>
-  <div class="portfolio-start-cont">
+  <div class="portfolio-start-cont" id="start">
     <h1 class="port-start-head">Our Portfolio</h1>
     <h1 class="port-start-names">Monique Tickle<br>Rane Magno</h1>
-    <!-- Not sure if this start image needs to be grabbed from database -->
-    <img src="https://drive.google.com/uc?export=view&id=1aP7k6HadfjEvnsEpoPXjO-8PFQPZqyf8" alt="Monique and Rane - Maori Alphabet Chart" class="alphabet">
   </div>
 
-  <!-- Templates and Class names for Portfolio Items -->
-  <div class="portfolio-items-cont">
-    <div class="heading h-left">BOLD</div>
-    <div class="portrait-right">
-      <img src="https://drive.google.com/uc?export=view&id=X2X" alt="Monique - News App" class="img-1">
+  <!-- Where Portflio Items will be inserted -->
+  <div class="portfolio-items-cont"></div>
+  <div class="contacts-cont">
+    <div class="contacts-head">
+      <h1>Contact Us</h1>
     </div>
-    <div class="portrait-left">
-      <img src="https://drive.google.com/uc?export=view&id=X3X" alt="Rane - Dictionary App" class="img-2">
+    <div class="contact-details">
+      <div class="details mo-details">
+        <ul>
+          <li>Monique Tickle</li>
+          <li>github.com/mew-mo</li>
+          <li>tickle.monique@gmail.com</li>
+        </ul>
+      </div>
+      <div class="details rane-details">
+        <ul>
+          <li>Rane Magno</li>
+          <li>github.com/rraneighh</li>
+          <li>ranemagno@gmail.com</li>
+        </ul>
+      </div>
     </div>
-    <div class="heading h-right">SIMPLE</div>
-    <div class="landscape">
-      <img src="https://drive.google.com/uc?export=view&id=X4X" alt="Monique - Mr Go's Website">
-    </div>
-    <!-- id="lastTitle" temporary id -->
-    <div class="heading h-full-width" id="lastTitle">We're just so cool.</div>
   </div>
+  <h1 class="back-top"><a href="#top">.</a><br><a href="#top">↑</a></h1>
 </body>
+
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/home.js"></script>

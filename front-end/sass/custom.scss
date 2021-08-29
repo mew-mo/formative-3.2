@@ -1,9 +1,8 @@
-
 @import 'vars';
-$ez-on-eyes: rgb(182, 212, 159);
-$ez-on-eyes2: rgb(212, 159, 159);
-$ez-on-eyes3: rgb(159, 169, 212);
 
+html {
+  scroll-behavior: smooth;
+}
 
 // GLOBAL STYLES ------------------------------
 
@@ -48,6 +47,17 @@ h2 {
 // INDEX PAGE SASS ------------------------------
 // put ur stuff here i guess! reorganise the css if u wanna im just laying it out how i'm used to LOL
 // thank you very much!! and the organization is pristine :O
+
+.portfolio-page {
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    color: black;
+    text-decoration: none;
+  }
+}
+
 .landing-cont {
    text-align: center;
    width: 100%;
@@ -62,10 +72,13 @@ h2 {
   text-align: center;
 }
 .land-mora {
-  margin-top: 5%;
+  margin-top:8%;
+}
+.land-dot {
+  font-size: 5vw;
 }
 .land-scroll {
-  margin-top: 5%;
+  margin-top: 15%;
   font-size: 5vw;
 }
 
@@ -74,7 +87,6 @@ h2 {
 .portfolio-start-cont {
   height: 100vh;
   width: 100%;
-  // background-color: $ez-on-eyes;
   display: grid;
   grid-template-columns:
     30px 53% 43% 30px;
@@ -99,7 +111,7 @@ h2 {
   text-align: right;
   margin: 5% 5% 0 0;
 }
-.alphabet {
+.special {
   width: 100%;
   grid-column: 2/4;
   grid-row: 3/4;
@@ -109,14 +121,10 @@ h2 {
 
 .portfolio-items-cont {
   width: 100%;
-  // height: 100vh;
-  // background-color: $ez-on-eyes3;
   display: grid;
   grid-template-columns:
     30px 1fr 5% 1fr 30px;
-  // grid-template-rows:
-  //   30px repeat(5, 1fr) 30px;
-  grid-auto-rows: 45vh;
+  grid-auto-rows: 40vh;
 }
 .heading {
   @extend %lora-font-default;
@@ -126,7 +134,7 @@ h2 {
 }
 .h-left {
   text-align: center;
-  margin-top: 20%;
+  margin-top: 10%;
   grid-column: 2/3;
   grid-row-end: span 1;
 }
@@ -140,6 +148,7 @@ h2 {
   text-align: center;
   grid-column: 2/5;
   grid-row-end: span 1;
+  margin-top: 5%;
 }
 .portrait-right {
   grid-column: 4/5;
@@ -168,8 +177,55 @@ h2 {
   justify-content: center;
   align-items: center;
   img {
-    width: 90%;
+    width: 100%;
   }
+}
+
+// ---------------
+
+.contacts-cont {
+  width: 100%;
+  height: 70vh;
+  h1 {
+    @extend %lora-font-default;
+    font-weight: 500;
+    font-style: italic;
+    font-size: 8vw;
+    margin: 7% 0 0 10%;
+  }
+}
+.contact-details {
+  width: 100%;
+  height: 70%;
+  display: flex;
+}
+.details {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  ul, li {
+    list-style-type: none;
+  }
+  li:first-child {
+    @extend %lora-font-default;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 3vw;
+    margin-bottom: 10%;
+  }
+  li {
+    @extend %nunito-font-default;
+    font-size: 2vw;
+  }
+}
+
+.back-top {
+  text-align: center;
+  @extend %lora-font-default;
+  font-size: 3vw;
+  margin: 0 0 5% 0;
+  padding: 0;
 }
 
 // INDEX PAGE SASS ENDS ------------------------------

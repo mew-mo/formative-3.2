@@ -1,6 +1,4 @@
 (function() {
-console.log('custom.js connected...');
-
 
   // declaring the url
   let url;
@@ -17,12 +15,10 @@ console.log('custom.js connected...');
   });
 
   // conditionals for calling code depending on what page the user is on
-  // note for rane: i had to do this because the code would break if i ran the js and it was looking for an element that wasnt on the page being run (like if it was looking for the nonexistent login button on the user page)! if the code doesnt make sense lmk
   if($('body').data('title') === 'home-page') {
     // INDEX.HTML JS --------------------
 
-    // login function to work with, i just needed to declare the session storage stuff for my code to work-- mess around with it as u need!!
-
+    // login function
     document.querySelector('#loginModalBtn').addEventListener('click', () => {
       $('#loginModal').modal('show');
     }, false);
@@ -65,6 +61,96 @@ console.log('custom.js connected...');
       } // else ends
     }, false);
     // login click ENDS
+
+    // Bootstrap Poppers Initialize
+    $(function () {
+      $('[data-toggle="popover"]').popover();
+    });
+
+    $.ajax({
+      url: `http://localhost:3000/allItems`,
+      type: 'GET',
+      datatype: 'json',
+      success: function(portfolioItemsDB){
+
+        var pImages = []; //portrait images
+        var lImages = []; //landscape images
+        var keywords = ['MINIMAL', 'CLEAN', 'Going Beyond Normal.', 'BOLD', 'UNIQUE', 'Usability x Creativity' ];
+
+          for (var i = 0; i < portfolioItemsDB.length; i++) {
+            if (portfolioItemsDB[i].special == true) {
+              document.querySelector('.portfolio-start-cont').innerHTML +=
+              `<img src="${portfolioItemsDB[i].imgUrl}" alt="${portfolioItemsDB[i].author} - ${portfolioItemsDB[i].name}" class="special">`;
+            } else if (portfolioItemsDB[i].orientation == "portrait"){
+              pImages.push(portfolioItemsDB[i]);
+            } else {
+              lImages.push(portfolioItemsDB[i]);
+            }
+          } //portfolioItemsDB loop ends
+
+        makeElements(); //Making divs and images through a layout code order
+        function makeElements() {
+          layoutOrder = [
+            'hl','pr',
+            'pl','hr',
+            'l',
+            'l',
+            'hw',
+            'l',
+            'l',
+            'hl','pr',
+            'pl','hr',
+            'l',
+            'l',
+            'hw',
+            'l',
+            'l'];
+          for (var i = 0, pCounter = 0, lCounter = 0, kCounter = 0; i < layoutOrder.length; i++) {
+            if (layoutOrder[i] == 'hl') {
+              document.querySelector('.portfolio-items-cont').innerHTML +=
+              `<div class="heading h-left">${keywords[kCounter]}</div>`;
+              kCounter++;
+            } else if (layoutOrder[i] == 'hr') {
+              document.querySelector('.portfolio-items-cont').innerHTML +=
+              `<div class="heading h-right">${keywords[kCounter]}</div>`;
+              kCounter++;
+            } else if (layoutOrder[i] == 'pr'){
+              document.querySelector('.portfolio-items-cont').innerHTML +=
+              `<div class="portrait-right">
+                <img src="${pImages[pCounter].imgUrl}" alt="${pImages[pCounter].author} - ${pImages[pCounter].name}">
+              </div>`;
+              pCounter++;
+            } else if (layoutOrder[i] == 'pl'){
+              document.querySelector('.portfolio-items-cont').innerHTML +=
+              `<div class="portrait-left">
+                <img src="${pImages[pCounter].imgUrl}" alt="${pImages[pCounter].author} - ${pImages[pCounter].name}">
+              </div>`;
+              pCounter++;
+            } else if (layoutOrder[i] == 'hw'){
+              document.querySelector('.portfolio-items-cont').innerHTML +=
+              `<div class="heading h-full-width">${keywords[kCounter]}</div>`;
+              kCounter++;
+            } else if (layoutOrder[i] == 'l'){
+              document.querySelector('.portfolio-items-cont').innerHTML +=
+              `<div class="landscape">
+                <img src="${lImages[lCounter].imgUrl}" alt="${lImages[lCounter].author} - ${lImages[lCounter].name}">
+              </div>`;
+              lCounter++;
+            } else {
+              console.log('Code Invalid : Valid Codes - hl, hr, hw, pl, pr, l');
+            }
+          } //layoutOrder loop ends
+        } //makeElements function ends
+
+        // i was going to make some poppers
+        document.addEventListener("DOMContentLoaded", function(event){
+          console.log(document.querySelectorAll('.landscapes'));
+        });
+      }, //success ends
+      error:function(){
+        console.log('NOT WORKING');
+      }
+    }); //ajax ENDS
 
     // INDEX.HTML JS ENDS --------------------
   } else if ($('body').data('title') === 'user-page') {
@@ -175,7 +261,8 @@ console.log('custom.js connected...');
           }
         }, //success ends
         error: function() {
-          console.log('Error: Cannot GET');
+          alert('Error: Cannot GET - please try reloading.');
+          // errors only have been happening when the page loads faster than it can connect to the DB. The user may need to reload because of this.
         } //error ends
       }); //ajax ends
     });
@@ -188,7 +275,7 @@ console.log('custom.js connected...');
         // grabbing the relevant item id that is stored in the associated button
 
         if (!sessionStorage.userID) {
-          alert('401 Permission Denied: Please log in or register first.');
+          alert('401 Permission Denied: Please log in first.');
           return;
         }
         // not allowing user to perform actions if not logged in
@@ -288,7 +375,7 @@ console.log('custom.js connected...');
       if (sessionStorage.getItem('userID')) {
         $('#addItemModal').modal('show');
       } else {
-        alert('You don\'t have permission to do this. Please log in or register first.');
+        alert('You don\'t have permission to do this. Please log in first.');
         // not allowing user to perform actions if not logged in
       }
     }, false);

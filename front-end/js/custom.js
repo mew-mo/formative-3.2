@@ -63,9 +63,9 @@
     // login click ENDS
 
     // Bootstrap Poppers and Tooltips Initialize
-    $(function () {
-      $('[data-toggle="popover"]').popover();
-      $('[data-toggle="tooltip"]').tooltip();
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl);
     });
 
     $.ajax({
@@ -81,9 +81,7 @@
           for (var i = 0; i < portfolioItemsDB.length; i++) {
             if (portfolioItemsDB[i].special == true) {
               document.querySelector('.portfolio-start-cont').innerHTML +=
-              `<a data-bs-toggle="popover" data-bs-placement="bottom" title="${portfolioItemsDB[i].author}" data-bs-content="${portfolioItemsDB[i].name} - ${portfolioItemsDB[i].url}">
-                <img src="${portfolioItemsDB[i].imgUrl}" alt="${portfolioItemsDB[i].author} - ${portfolioItemsDB[i].name}" class="special">
-                </a>`;
+              `<img src="${portfolioItemsDB[i].imgUrl}" alt="${portfolioItemsDB[i].author} - ${portfolioItemsDB[i].name}" class="special" data-bs-toggle="popover" data-bs-placement="bottom" title="${portfolioItemsDB[i].author}" data-bs-content="${portfolioItemsDB[i].name} - ${portfolioItemsDB[i].url}">`;
             } else if (portfolioItemsDB[i].orientation == "portrait"){
               pImages.push(portfolioItemsDB[i]);
             } else {
@@ -120,17 +118,13 @@
             } else if (layoutOrder[i] == 'pr'){
               document.querySelector('.portfolio-items-cont').innerHTML +=
               `<div class="portrait-right">
-                <a data-bs-toggle="popover" data-bs-placement="left" title="${pImages[pCounter].author}" data-bs-content="${pImages[pCounter].name} - ${pImages[pCounter].url}">
-                  <img src="${pImages[pCounter].imgUrl}" alt="${pImages[pCounter].author} - ${pImages[pCounter].name}">
-                </a>
+                  <img src="${pImages[pCounter].imgUrl}" alt="${pImages[pCounter].author} - ${pImages[pCounter].name}" data-bs-toggle="popover" data-bs-placement="left" title="${pImages[pCounter].author}" data-bs-content="${pImages[pCounter].name} - ${pImages[pCounter].url}">
               </div>`;
               pCounter++;
             } else if (layoutOrder[i] == 'pl'){
               document.querySelector('.portfolio-items-cont').innerHTML +=
               `<div class="portrait-left">
-                <a data-bs-toggle="popover" data-bs-placement="right" title="${pImages[pCounter].author}" data-bs-content="${pImages[pCounter].name} - ${pImages[pCounter].url}">
-                  <img src="${pImages[pCounter].imgUrl}" alt="${pImages[pCounter].author} - ${pImages[pCounter].name}">
-                </a>
+                <img src="${pImages[pCounter].imgUrl}" alt="${pImages[pCounter].author} - ${pImages[pCounter].name}" data-bs-toggle="popover" data-bs-placement="left" title="${pImages[pCounter].author}" data-bs-content="${pImages[pCounter].name} - ${pImages[pCounter].url}">
               </div>`;
               pCounter++;
             } else if (layoutOrder[i] == 'hw'){
@@ -140,9 +134,7 @@
             } else if (layoutOrder[i] == 'l'){
               document.querySelector('.portfolio-items-cont').innerHTML +=
               `<div class="landscape">
-                <a data-bs-toggle="popover" data-bs-placement="bottom" title="${lImages[lCounter].author}" data-bs-content="${lImages[lCounter].name} - ${lImages[lCounter].url}">
-                  <img src="${lImages[lCounter].imgUrl}" alt="${lImages[lCounter].author} - ${lImages[lCounter].name}">
-                </a>
+                  <img src="${lImages[lCounter].imgUrl}" alt="${lImages[lCounter].author} - ${lImages[lCounter].name}" data-bs-toggle="popover" data-bs-placement="bottom" title="${lImages[lCounter].author}" data-bs-content="${lImages[lCounter].name} - ${lImages[lCounter].url}">
               </div>`;
               lCounter++;
             } else {
